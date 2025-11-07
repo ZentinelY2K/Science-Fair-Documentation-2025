@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Struggles and Overcoming Them</title>
+        <style>
+         body{
+            background-color: black;
+            color: rgb(0, 255, 0);
+         }
+         a{
+            color: blue;
+            text-decoration:underline;
+         }
+         a:hover{
+            color:red;
+            text-decoration:none ;
+         }
+        img{
+            box-shadow: 0 0 30PX blueviolet;
+            border-radius: 20px;
+        }
+        </style>
+    </head>
+        <h1>
+        This is my favorite part, as it is the most important to me, this wasn't easy, most of the times <br>
+        we think of ideas and picture them as something that should be achieved quick, but when actually trying
+        to execute them...
+        </h1>
+        <h3>Table of Contents</h3>
+        <ol>
+            <li>The original Idea</li><br>
+            <li>DcMotor Desperation</li><br>
+            <li>The Reboot: Frustration turned into Illumination</li><br>
+            <li>Learning MediaPipe and OpenCV functions</li><br>
+            <li>School,Extracurriculars,and Responsabilities</li><br>
+            <li>Improvising Wiring</li><br>
+            <li>Improvising Parts</li><br>
+            <li>ESP32 Module not working</li><br>
+            
+        </ol>
+        <h1>
+            The Original Idea:
+        </h1>
+        <p>
+            My original idea had nothing to do with what im currently doing, i was planning on<br>
+            making a fully-automated AI enviorment that would control a drone, but since it was hard<br>
+            to find a programmable drone, or even if there was, that it didn't use blocky code for it.
+            I ended up dropping the idea after failing to succesfully make the vision AI send the <br>
+            information to the index AI through text-to-speech, and other issues i won't dive into.
+        </p>
+        <h1>
+            DcMotor Desperation:
+        </h1>
+        <p> 
+            One of the main reasons i dropped the main idea was due to wrongly provided DcMotors that didn't react to <br>
+            the submitted Arduino IDE code, this, i think, because the smartcarShield v1.1 couldn't provide instructions<br>
+            or direction to the motors at all, you need a module for this, then why didn't it come with the original kit?
+        </p>
+        <h1>
+             The Rebirth
+        </h1>
+        <p>
+            After the first project failed, i got frustrated, deeply, i was tired, i overslept, i tried so hard, all for nothing, until...<br>
+            i stumbled across a 40 second video, my YT feed is filled with tech-related stuff, so it wasn't surprising when i saw<br>
+            someone controlling a servo, but that's the thing, he wasn't using sketch, he was using his own hands and a camera.
+            I looked up what library or method that was, and the rest is history.
+            </p>
+        <h1>
+            Learning Stage
+        </h1>
+        <p>
+            Of course i wasn't born knowing how to use MediaPipe and OpenCV, so i used serveral tools and sources to help me,
+            these include:
+            <ol>
+                <li>Gemini 'Step-by-step learning' option</li>
+                    <img src="Images_Host_server/Screenshot 2025-11-06 153223.png" alt = "Sorry not loading!" width = "300"> 
+                <li>>Several Youtube Videos when i needed visual assitance, this is the one that helped me the most to understand<br> the basic layout and methods,
+                        even though it wasn't related to my project, it did show the basics of the libraries:<br>
+                        <a href = "https://youtu.be/RRBXVu5UE-U"> Video</a>
+                        </li>
+                        <li> I also looked for some already-existing code in Github in order to have an idea of how to take it, and adjust it so it could send<br> data to
+                        my Arduino</li>
+                        <li> Just as a note, i already had some Arduino experience (IDE) So programming the servos<br>
+                        and DcMotors wasn't difficult, but managing to recieve data from Python was indeed tedious</li>
+                        <li>
+                            <h1>
+                                And for me, the most frustrating yet.
+                            </h1>
+                            <p> 
+                                The ESP32 module, supposedly having 'wifi + bluetooth' hardware was, and is a nightmare, probably by the time<br>
+                                im done documenting this i still haven't made the robot wireless, if so, then i presented/im going to present
+                                a robot using a serial cable, but i'll also add it to the 'why this is a demo' section.
+                            </p>
+                        </li>
+            </ol>
+
+        </p>
+        <a href = "index.html">Go Back To Main Page</a>
+
+</html>

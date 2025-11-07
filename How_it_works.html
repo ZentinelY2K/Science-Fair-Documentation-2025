@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title> How It Works</title>    
+        <style>
+            body{
+                background-color: black;
+                color: rgb(43, 255, 0);
+        
+            }
+            html{
+                scroll-behavior:smooth;
+            }
+            section{
+                scroll-margin-top: 10px;
+                
+            }
+            img{
+                box-shadow: 0 0 50px #02c4ff;
+                border-radius: 20px;
+            }
+            a {
+                color: blue;
+                text-decoration:underline;
+            }
+            a:hover{
+                color: red;
+                text-decoration:none;
+            }
+            a#go-top{
+                color: red;
+
+            }
+           a#go-top:hover{
+                color:blue;
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <a id = "#top"></a>
+        
+        <h1> The fun part! How in the world does your hand movement make DcMotors and Servos come alive?</h1>
+        <h4>Go To:</h4>
+            <a href = "#Libraries"> Libraries</a><br>
+        <a href = "#Usage"> Library usage within the program</a>
+        <section id = "Libraries">
+        <a href = "#Graphs">Graphs and Data </a>
+        <br>
+            <a href = "index.html"> Go back to Main Page</a>
+        <p> it may look like rocket science at first (and it would be without libraries) which is why: </p>
+            <h1>MediaPipe</h1>
+            <p> MediaPipe is an open-source framework developed by Google for building machine learning pipelines, <br>
+                particularly for processing time-series data such as video, audio, and text. It is designed to work across <br>
+                multiple platforms, including desktops, mobile devices (Android and iOS), and embedded systems<br>
+                 like Raspberry Pi and Jetson Nano, and in this case, Arduino.</p>
+                 <img src = "Images_Host_server/1_Hgg6bLceoIjubE2hBiJK4g.png" alt ="sorry not loading!" width = "300">
+            <h1> OpenCV</h1>
+            <p> OpenCV (Open Source Computer Vision Library) is an open-source computer vision and machine learning<br>
+                 software library. It is widely used for various image and video processing tasks, such as object detection, <br>
+                 face recognition, and image transformation. OpenCV supports multiple programming languages, including Python,<br>
+                  C++, and Java. </p>
+                <img src = "Images_Host_server/Gemini_Generated_Image_r7vzxwr7vzxwr7vz.png " alt = "Sorry not loading!" width = "300">
+                 </section>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <section id = "Usage">
+                <h1> How Were These Libraries Used Then?</h1>
+                <p> MediaPipe and CV both work together as a team in my code, openCV will open the camera, take frames<br>
+                from it, and translate them into information - but what information? That's where MediaPipe comes in,<br>
+            MediaPipe tracks 21 landmarks all throughout your fingers, it's just what you do with them that makes everything work</p>
+            <h1> The Code, what makes Serial Comunication Awesome</h1>
+            <h4> <b><u>What is Serial Communication(In Arduino)?</u></b></h4>
+            <p> Serial communication in Arduino facilitates data exchange between the Arduino board<br>
+                 and external devices such as computers, sensors, or other microcontrollers.<br>
+                  It is a fundamental feature of Arduino, enabling debugging, data logging, and interaction with peripherals,
+                  In this case, Python communicates with the Arduino through a wireless bluetooth module (Esp32).
+                Python sends the information, the Arduino IDE recieves it and processes it, and finally
+            the Arduino executes it</p>
+            <br>
+            <h1>A brief Summary of what's Hardcoded:</h1>
+            <p>Here we Import the necessary libraries in order for us to be able to use those functionns:</p>
+            <img src = "Images_Host_server/Screenshot 2025-11-04 084409.png" alt = "Sorry not loading!" width = 500>
+            <div style = "margin-bottom: 20px">     
+                <p> Here we set Python to send information through serial on Port 4 at 9600 bits, the ideal number for this:</p>
+                <img src = "Images_Host_server/Screenshot 2025-11-04 084458.png" alt = "Sorry not loading!" width = "500">
+                </div>
+                <div style = "margin-bottom:20px">
+                    <p>Here we do several things, we first use 'Hands()' and store it on a variable, this tell mediapipe (mp)<br>
+                    that we are tracking hands using the hand module, which assigns 21 landmarks throughout our hand, then <br>
+                we use 'video.capture' from OpenCV to turn on the webcam, as a last thing we create variables and use
+            the 'max' function along with 'len' in order to take the maximum value and take its lenght.</p>
+                    <img src = "Images_Host_server/Screenshot 2025-11-04 084712.png" alt = "Sorry not loading!" width = "500">
+                </div>
+                <div style = "margin-bottom:20px">
+                    <p>Here we create 2 functions at first, this isn't necessary but its best for modular code,<br>
+                        I created parameters to store values (in this case, the parameters act as containers for the calculated values)<br>
+                        Inside each function, an already built-in function (such as .landmark) complete a certain role,<br>
+                        then i just calculate the distance from point to point to work based off that
+                    </p>
+                    <img src = "Images_Host_server/Screenshot 2025-11-04 084755.png" alt = "Sorry not loading!" width = "500">
+                    </div>
+                    <div style = "margin-bottom:20px">
+                        <p>
+                            Here we just capture a frame, a specific frame from the web-cam and turn it into RGB (Red,Green, Blue) which<br>
+                            is the format Mediapipe supports, basically translating pixels to color, this helps MediaPipe identify
+                            where the landmakrs have moved by contrasting them against your skin (Computer Vision Principles)<br>
+                            this with the help of 'process' . Then we store the values in 3 different variables in order to set their
+                            default value (for servo its 90 degrees, for motors its 0 RPM, or in this case, PWM (pulse width modulation))
+
+                        </p>
+                    </div>
+                        <img src = "Images_Host_server/Screenshot 2025-11-04 084821.png" alt = "Sorry not loading!" width = "500">
+                        <div style = "margin-bottom:20px">
+                        <p>
+                            Our very last piece of code, yet the <b> MOST</b> important! without it, none of this would work <br>
+                            what it does is to 'write' (literally) using the .write function, what it does is that it sends
+                            the line of code to Arduino through serial, allowing it to interpret it as part of its own, and   
+                            therefore act upon it (execute it) <br>
+                            As a last thing, it just detects/waits for you to press the 'q' key for the program to stop running,
+                            'destroyAllWindows' and all that closes the webcam path, closes Serial communication, etc
+
+
+
+                        </p>
+                        <img src = "Images_Host_server/Screenshot 2025-11-04 084901.png" alt = "Sorry not loading!" width = "500">
+                        <br>
+                    <section id = "Graphs">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                         <div style = "margin-bottom:50px;">
+                        <img src = "Images_Host_server/Screenshot 2025-11-07 082720.png" alt = "Sorry not loading!" width = "500">
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div style = "margin-bottom:50px;">
+                        <img src = "Images_Host_server/Screenshot 2025-11-07 134645.png" alt = "Sorry not loading!" width = "500">
+                    </div>
+                    </section>
+
+                        <a id = "go-top" href = "#top">Go back to Top</a>
+
+
+
+                
+
+           
+
+            
+
+
+
+            </section>
+        
+        
+    </body>
+</html>
