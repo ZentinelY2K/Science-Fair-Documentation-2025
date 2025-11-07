@@ -15,5 +15,5 @@ Python, C++ (Arduino IDE), OpenCV, MediaPipe, HTML and CSS (website)
 This Repo just contains the documentatuion, if you want to see the video with it working please visit my Youtube Channel (link in website)
 And if you want the code check my other repository, "BioSync Code"
 
-#Prototyope
+# Prototyope
 This is a prototype, so it is not finished yet
